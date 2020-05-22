@@ -1,0 +1,1 @@
+terraform-docs markdown ./ >> modules/aks/Readme.md
