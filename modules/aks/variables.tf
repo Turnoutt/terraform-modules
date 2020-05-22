@@ -3,7 +3,8 @@ variable "resource_group_name" {
 }
 
 variable "environment_name" {
-  type = string
+  type        = string
+  description = "dev, prod, staging, etc."
 }
 
 variable "cluster_name" {
@@ -61,9 +62,9 @@ variable "network_policy" {
 }
 
 variable "service_principal_name" {
-  type = string
-  description ="The name of the service principal to be created for the cluster. If you are not using managed identity, this is required."
-  default = ""
+  type        = string
+  description = "The name of the service principal to be created for the cluster. If you are not using managed identity, this is required."
+  default     = ""
 
   # Waiting for better validation to roll out
   # validation {
@@ -80,8 +81,8 @@ variable "use_managed_identity" {
 variable "active_directory_config" {
   type = object(
     {
-    server_app_password = string
-    client_app_password = string
-  }
+      server_app_password = string
+      client_app_password = string
+    }
   )
 }

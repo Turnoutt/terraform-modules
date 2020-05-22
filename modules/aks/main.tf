@@ -3,7 +3,7 @@ data "azurerm_resource_group" "cluster" {
 }
 
 provider "azurerm" {
-  version         = ">= 2.5.0"
+  version = ">= 2.5.0"
   features {}
 }
 
@@ -19,7 +19,7 @@ resource "azurerm_kubernetes_cluster" "cluster" {
   dns_prefix                 = var.dns_prefix
   kubernetes_version         = var.kubernetes_version
   enable_pod_security_policy = false
-  
+
   dynamic "identity" {
     for_each = var.use_managed_identity ? ["1"] : []
     content {

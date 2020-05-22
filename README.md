@@ -4,4 +4,4 @@ This is a collection of modules we use to deploy our infrastructure. As we conti
 
 ## Current Modules
 
-[AKS](./modules/aks/Readme.md)
+[Azure AKS](./modules/aks/Readme.md)
