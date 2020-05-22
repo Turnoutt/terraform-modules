@@ -25,5 +25,8 @@ jobs:
     - name: HashiCorp - Setup Terraform
       uses: hashicorp/setup-terraform@v1.0.1
         
-    - name: Validate
-      run: terraform validate
+    - name: Validate Modules
+      run: for d in ./modules/*/ ; do (echo "Validating $d" && cd "$d" && terraform init && terraform validate); done
+    
+    - name: Validate Examples
+      run: for d in ./examples/*/ ; do (echo "Validating $d" && cd "$d" && terraform init && terraform validate); done
