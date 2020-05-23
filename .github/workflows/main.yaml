@@ -29,4 +29,5 @@ jobs:
       run: for d in ./modules/*/ ; do (echo "Validating $d" && cd "$d" && terraform init && terraform validate); done
     
     - name: Validate Examples
-      run: for d in ./examples/*/ ; do (echo "Validating $d" && cd "$d" && terraform init && terraform validate); done
+      run: |
+        for d in ./examples/*/ ; do (echo "Validating $d" && cd "$d" && terraform init && terraform validate); done
