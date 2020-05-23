@@ -1,15 +1,20 @@
 variable "api_name" {
-  type = string
+  type        = string
+  description = "The name of the Api. This will be used to generate other names in the module so don't use any spaces or special characters"
 }
 
 variable "aks_service_principal_id" {
-  type = string
+  type        = string
+  description = "The service principal Id of the Kubernetes Cluster"
 }
 
 variable "environment" {
-  type = string
+  type        = string
+  description = "dev, prod, staging, etc."
 }
 
 variable "migrations_identity_principal_id" {
-  type = string
+  type        = string
+  default     = ""
+  description = "The service principal Id of the identity used for running migrations."
 }
