@@ -26,6 +26,29 @@ resource "azurerm_key_vault" "api-key-vault" {
     ]
   }
 
+  dynamic "access_policy" {
+    for_each = length(var.migrations_identity_principal_id) > 0 ? ["migrations"] : []
+    content {
+      tenant_id = data.azurerm_client_config.current.tenant_id
+      object_id = var.migrations_identity_principal_id
+
+      key_permissions = [
+        "Get",
+        "List",
+      ]
+
+      secret_permissions = [
+        "Get",
+        "List",
+      ]
+
+      certificate_permissions = [
+        "Get",
+        "List",
+      ]
+    }
+  }
+
   tags = {
     environment = var.environment
     service     = title(var.api_name)
