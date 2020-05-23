@@ -1,1 +1,1 @@
-terraform-docs markdown ./ >> modules/aks/Readme.md
+for d in ./modules/*/ ; do (echo "Generating Docs For $d" && cd "$d" && terraform-docs markdown ./ > Readme.md); done
