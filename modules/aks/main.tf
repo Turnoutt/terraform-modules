@@ -59,9 +59,8 @@ resource "azurerm_kubernetes_cluster" "cluster" {
     enabled = true
 
     azure_active_directory {
-      client_app_id     = azuread_application.client-app.application_id
-      server_app_id     = azuread_application.server-app.application_id
-      server_app_secret = azuread_service_principal_password.server-app.value
+      managed                = true
+      admin_group_object_ids = []
     }
   }
 

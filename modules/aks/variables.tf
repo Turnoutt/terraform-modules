@@ -77,12 +77,3 @@ variable "use_managed_identity" {
   type    = bool
   default = true
 }
-
-variable "active_directory_config" {
-  type = object(
-    {
-      server_app_password = string
-      client_app_password = string
-    }
-  )
-}
