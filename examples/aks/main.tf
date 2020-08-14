@@ -11,8 +11,5 @@ module "aks" {
   environment_name     = "dev"
   use_managed_identity = true
 
-  active_directory_config = {
-    server_app_password = "superstr0ngp@ssword"
-    client_app_password = "superstr0ngp@ssword"
-  }
+  admin_group_object_ids = ["6c8261f1-ec70-4f7e-a0d3-e10706f25782"]
 }

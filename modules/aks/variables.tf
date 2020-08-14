@@ -77,3 +77,7 @@ variable "use_managed_identity" {
   type    = bool
   default = true
 }
+
+variable "admin_group_object_ids" {
+  type = list(string)
+}

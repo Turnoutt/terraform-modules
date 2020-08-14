@@ -2,6 +2,7 @@
 
 | Name | Version |
 |------|---------|
+| terraform | >= 0.13 |
 | azuread | ~>0.7.0 |
 | azurerm | >= 2.5.0 |
 
@@ -16,7 +17,7 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| active\_directory\_config | n/a | <pre>object(<br>    {<br>      server_app_password = string<br>      client_app_password = string<br>    }<br>  )</pre> | n/a | yes |
+| admin\_group\_object\_ids | n/a | `list(string)` | n/a | yes |
 | agent\_vm\_count | n/a | `string` | `"2"` | no |
 | agent\_vm\_size | n/a | `string` | `"Standard_D2s_v3"` | no |
 | cluster\_name | n/a | `string` | n/a | yes |
