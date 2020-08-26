@@ -81,3 +81,23 @@ variable "use_managed_identity" {
 variable "admin_group_object_ids" {
   type = list(string)
 }
+
+variable "log_analytics_name" {
+  description = "Name of the Log Analytics Workspace."
+  default     = "la-kube"
+}
+
+variable "log_analytics_sku" {
+  description = "Specified the Sku of the Log Analytics Workspace."
+  default     = "PerGB2018"
+}
+
+variable "retention_in_days" {
+  description = "The workspace data retetion in days. Possible values range between 30 and 730."
+  default     = 7
+}
+
+variable "use_log_analytics" {
+  type    = bool
+  default = false
+}

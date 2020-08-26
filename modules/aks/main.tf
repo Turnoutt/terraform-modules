@@ -35,6 +35,8 @@ resource "azurerm_kubernetes_cluster" "cluster" {
     }
   }
 
+
+
   default_node_pool {
     name                = "default"
     vm_size             = var.agent_vm_size
@@ -60,7 +62,7 @@ resource "azurerm_kubernetes_cluster" "cluster" {
 
     azure_active_directory {
       managed                = true
-      admin_group_object_ids = []
+      admin_group_object_ids = var.admin_group_object_ids
     }
   }
 
@@ -68,6 +70,23 @@ resource "azurerm_kubernetes_cluster" "cluster" {
     http_application_routing {
       enabled = false
     }
+
+    dynamic "oms_agent" {
+      for_each = var.use_log_analytics ? ["1"] : []
+      content {
+        enabled                    = var.use_log_analytics
+        log_analytics_workspace_id = azurerm_log_analytics_workspace.logs.id
+      }
+    }
+  }
+
+  lifecycle {
+    ignore_changes = [
+      # Ignore changes to tags, e.g. because a management agent
+      # updates these based on some ruleset managed elsewhere.
+      tags,
+      default_node_pool[0].node_count
+    ]
   }
 }
 
