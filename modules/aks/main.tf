@@ -46,6 +46,7 @@ resource "azurerm_kubernetes_cluster" "cluster" {
     min_count           = 1
     max_count           = 10
     type                = "VirtualMachineScaleSets"
+    vnet_subnet_id      = azurerm_subnet.kubesubnet.id
   }
 
   network_profile {

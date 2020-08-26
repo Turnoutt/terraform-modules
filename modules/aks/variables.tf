@@ -52,6 +52,31 @@ variable "docker_cidr" {
   description = "IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Default of 172.17.0.1/16."
 }
 
+variable "virtual_network_address_prefix" {
+  description = "Containers DNS server IP address."
+  default     = "15.0.0.0/8"
+}
+
+variable "virtual_network_name" {
+  description = "Virtual network name"
+  default     = "aksVirtualNetwork"
+}
+
+variable "aks_subnet_name" {
+  description = "AKS Subnet Name."
+  default     = "kubesubnet"
+}
+
+variable "aks_subnet_address_prefix" {
+  description = "Containers DNS server IP address."
+  default     = "15.0.0.0/16"
+}
+
+variable "app_gateway_subnet_address_prefix" {
+  description = "Containers DNS server IP address."
+  default     = "15.1.0.0/16"
+}
+
 variable "network_plugin" {
   default     = "azure"
   description = "Network plugin used by AKS. Either azure or kubenet."
@@ -94,10 +119,33 @@ variable "log_analytics_sku" {
 
 variable "retention_in_days" {
   description = "The workspace data retetion in days. Possible values range between 30 and 730."
-  default     = 7
+  default     = 30
 }
 
 variable "use_log_analytics" {
   type    = bool
   default = false
+}
+
+variable "app_gateway_sku" {
+  description = "Name of the Application Gateway SKU."
+  default     = "Standard_v2"
+}
+
+variable "app_gateway_tier" {
+  description = "Tier of the Application Gateway SKU."
+  default     = "Standard_v2"
+}
+
+variable "app_gateway_name" {
+  description = "Name of the Application Gateway."
+  default     = "ApplicationGateway1"
+}
+
+variable "public_ip_name" {
+  type = string
+}
+
+variable "public_ip_resource_group_name" {
+  type = string
 }

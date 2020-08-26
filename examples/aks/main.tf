@@ -13,4 +13,7 @@ module "aks" {
   use_log_analytics    = true
 
   admin_group_object_ids = ["6c8261f1-ec70-4f7e-a0d3-e10706f25782"]
+
+  public_ip_name                = "ip-api-staging"
+  public_ip_resource_group_name = "rg-tt-api-staging"
 }
