@@ -31,3 +31,11 @@ output "kubernetes_cluster_id" {
 output "service_principal" {
   value = local.service_principal_id
 }
+
+output "app_gateway_identity_client_id" {
+  value = azurerm_user_assigned_identity.testIdentity.client_id
+}
+
+output "app_gateway_identity_resource_id" {
+  value = azurerm_user_assigned_identity.testIdentity.resource_id
+}

@@ -139,7 +139,6 @@ variable "app_gateway_tier" {
 
 variable "app_gateway_name" {
   description = "Name of the Application Gateway."
-  default     = "ApplicationGateway1"
 }
 
 variable "public_ip_name" {
