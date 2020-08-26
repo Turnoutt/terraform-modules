@@ -37,5 +37,5 @@ output "app_gateway_identity_client_id" {
 }
 
 output "app_gateway_identity_resource_id" {
-  value = azurerm_user_assigned_identity.testIdentity.resource_id
+  value = azurerm_user_assigned_identity.testIdentity.id
 }
