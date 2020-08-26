@@ -10,6 +10,7 @@ module "aks" {
   kubernetes_version   = "1.15.7"
   environment_name     = "dev"
   use_managed_identity = true
+  use_log_analytics    = true
 
   admin_group_object_ids = ["6c8261f1-ec70-4f7e-a0d3-e10706f25782"]
 }

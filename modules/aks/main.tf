@@ -75,7 +75,7 @@ resource "azurerm_kubernetes_cluster" "cluster" {
       for_each = var.use_log_analytics ? ["1"] : []
       content {
         enabled                    = var.use_log_analytics
-        log_analytics_workspace_id = azurerm_log_analytics_workspace.logs.id
+        log_analytics_workspace_id = azurerm_log_analytics_workspace.logs[0].id
       }
     }
   }
