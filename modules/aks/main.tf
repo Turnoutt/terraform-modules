@@ -11,10 +11,13 @@ provider "azuread" {
   version = "~>0.7.0"
 }
 
+locals {
+  deployed_location = var.cluster_location == "" ? data.azurerm_resource_group.cluster.location : var.cluster_location
+}
 
 resource "azurerm_kubernetes_cluster" "cluster" {
   name                       = var.cluster_name
-  location                   = var.cluster_location == "" ? data.azurerm_resource_group.cluster.location : var.cluster_location
+  location                   = local.deployed_location
   resource_group_name        = data.azurerm_resource_group.cluster.name
   dns_prefix                 = var.dns_prefix
   kubernetes_version         = var.kubernetes_version
