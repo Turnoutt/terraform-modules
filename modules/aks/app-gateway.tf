@@ -80,11 +80,13 @@ resource "azurerm_application_gateway" "network" {
 
   lifecycle {
     ignore_changes = [
-      "tags",
-      "http_listener",
-      "backend_http_settings",
-      "request_routing_rule",
-      "backend_address_pool"
+      tags,
+      http_listener,
+      backend_http_settings,
+      request_routing_rule,
+      backend_address_pool,
+      probe,
+      ssl_certificate
     ]
   }
 }
