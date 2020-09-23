@@ -86,7 +86,8 @@ resource "azurerm_application_gateway" "network" {
       request_routing_rule,
       backend_address_pool,
       probe,
-      ssl_certificate
+      ssl_certificate,
+      frontend_port
     ]
   }
 }
