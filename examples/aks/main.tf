@@ -16,4 +16,6 @@ module "aks" {
 
   public_ip_name                = "ip-api-staging"
   public_ip_resource_group_name = "rg-tt-api-staging"
+
+  app_gateway_name = "agw-test"
 }

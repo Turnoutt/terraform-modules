@@ -11,6 +11,11 @@ variable "cluster_name" {
   type = string
 }
 
+variable "cluster_location" {
+  type    = string
+  default = ""
+}
+
 variable "dns_prefix" {
   type = string
 }

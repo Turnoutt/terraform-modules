@@ -14,7 +14,7 @@ provider "azuread" {
 
 resource "azurerm_kubernetes_cluster" "cluster" {
   name                       = var.cluster_name
-  location                   = data.azurerm_resource_group.cluster.location
+  location                   = var.cluster_location == "" ? data.azurerm_resource_group.cluster.location : var.cluster_location
   resource_group_name        = data.azurerm_resource_group.cluster.name
   dns_prefix                 = var.dns_prefix
   kubernetes_version         = var.kubernetes_version
