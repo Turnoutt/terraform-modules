@@ -14,7 +14,7 @@ locals {
 resource "azurerm_application_gateway" "network" {
   name                = var.app_gateway_name
   resource_group_name = data.azurerm_resource_group.cluster.name
-  location            = data.azurerm_resource_group.cluster.location
+  location            = local.deployed_location
 
   sku {
     name = var.app_gateway_sku
