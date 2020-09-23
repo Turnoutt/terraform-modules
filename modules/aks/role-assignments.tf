@@ -11,7 +11,7 @@ resource "azurerm_role_assignment" "ra1" {
   role_definition_name = "Network Contributor"
   principal_id         = local.service_principal_id
 
-  depends_on = [azurerm_virtual_network.test]
+  depends_on = [azurerm_virtual_network.cluster_network]
 }
 
 resource "azurerm_role_assignment" "ra2" {
