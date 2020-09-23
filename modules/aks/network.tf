@@ -4,7 +4,7 @@ data "azurerm_public_ip" "test" {
   resource_group_name = var.public_ip_resource_group_name
 }
 
-resource "azurerm_virtual_network" "test" {
+resource "azurerm_virtual_network" "cluster_network" {
   name                = var.virtual_network_name
   location            = local.deployed_location
   resource_group_name = data.azurerm_resource_group.cluster.name
