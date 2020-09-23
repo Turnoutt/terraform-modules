@@ -78,11 +78,13 @@ resource "azurerm_application_gateway" "network" {
     data.azurerm_public_ip.test,
   ]
 
-  ignore_changes = [
-    "tags",
-    "http_listener",
-    "backend_http_settings",
-    "request_routing_rule",
-    "backend_address_pool"
-  ]
+  lifecycle {
+    ignore_changes = [
+      "tags",
+      "http_listener",
+      "backend_http_settings",
+      "request_routing_rule",
+      "backend_address_pool"
+    ]
+  }
 }
