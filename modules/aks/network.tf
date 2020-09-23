@@ -13,14 +13,14 @@ resource "azurerm_virtual_network" "cluster_network" {
 
 resource "azurerm_subnet" "kubesubnet" {
   name                 = var.aks_subnet_name
-  virtual_network_name = azurerm_virtual_network.test.name
+  virtual_network_name = azurerm_virtual_network.cluster_network.name
   resource_group_name  = data.azurerm_resource_group.cluster.name
   address_prefixes     = [var.aks_subnet_address_prefix]
 }
 
 resource "azurerm_subnet" "appgwsubnet" {
   name                 = "appgwsubnet" #Hardcoded to this name.
-  virtual_network_name = azurerm_virtual_network.test.name
+  virtual_network_name = azurerm_virtual_network.cluster_network.name
   resource_group_name  = data.azurerm_resource_group.cluster.name
   address_prefixes     = [var.app_gateway_subnet_address_prefix]
 }

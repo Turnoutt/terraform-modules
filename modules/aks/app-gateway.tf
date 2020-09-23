@@ -1,10 +1,10 @@
 locals {
-  backend_address_pool_name      = "${azurerm_virtual_network.test.name}-beap"
-  frontend_port_name             = "${azurerm_virtual_network.test.name}-feport"
-  frontend_ip_configuration_name = "${azurerm_virtual_network.test.name}-feip"
-  http_setting_name              = "${azurerm_virtual_network.test.name}-be-htst"
-  listener_name                  = "${azurerm_virtual_network.test.name}-httplstn"
-  request_routing_rule_name      = "${azurerm_virtual_network.test.name}-rqrt"
+  backend_address_pool_name      = "${azurerm_virtual_network.cluster_network.name}-beap"
+  frontend_port_name             = "${azurerm_virtual_network.cluster_network.name}-feport"
+  frontend_ip_configuration_name = "${azurerm_virtual_network.cluster_network.name}-feip"
+  http_setting_name              = "${azurerm_virtual_network.cluster_network.name}-be-htst"
+  listener_name                  = "${azurerm_virtual_network.cluster_network.name}-httplstn"
+  request_routing_rule_name      = "${azurerm_virtual_network.cluster_network.name}-rqrt"
 
   #networkContributorRole         = "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', '4d97b98b-1d4f-4787-a291-c67834d212e7')]"
 
@@ -74,7 +74,7 @@ resource "azurerm_application_gateway" "network" {
   }
 
   depends_on = [
-    azurerm_virtual_network.test,
+    azurerm_virtual_network.cluster_network,
     data.azurerm_public_ip.test,
   ]
 
