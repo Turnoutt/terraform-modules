@@ -75,6 +75,10 @@ resource "azurerm_kubernetes_cluster" "cluster" {
       enabled = false
     }
 
+    kube_dashboard {
+      enabled = false
+    }
+
     dynamic "oms_agent" {
       for_each = var.use_log_analytics ? ["1"] : []
       content {
