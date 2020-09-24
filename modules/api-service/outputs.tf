@@ -9,3 +9,11 @@ output "resource_group_name" {
 output "service_identity_principal_id" {
   value = azurerm_user_assigned_identity.api-identity.principal_id
 }
+
+output "service_identity_client_id" {
+  value = azurerm_user_assigned_identity.api-identity.client_id
+}
+
+output "service_identity_id" {
+  value = azurerm_user_assigned_identity.api-identity._id
+}
