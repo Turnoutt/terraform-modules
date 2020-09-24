@@ -38,7 +38,6 @@ locals {
 # Required permissions for AAD Pod Identity
 # The SP needs both of these permissions on the Node RG
 resource "azurerm_role_assignment" "aks-identity-contributor-assignment" {
-  count                = var.use_managed_identity ? 1 : 0
   scope                = data.azurerm_resource_group.node-group.id
   role_definition_name = "Virtual Machine Contributor"
   principal_id         = local.service_principal_id
@@ -46,7 +45,6 @@ resource "azurerm_role_assignment" "aks-identity-contributor-assignment" {
 
 
 resource "azurerm_role_assignment" "aks-identity-operator-assignment" {
-  count                = var.use_managed_identity ? 1 : 0
   scope                = data.azurerm_resource_group.node-group.id
   role_definition_name = "Managed Identity Operator"
   principal_id         = local.service_principal_id
