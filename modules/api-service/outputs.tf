@@ -15,5 +15,5 @@ output "service_identity_client_id" {
 }
 
 output "service_identity_id" {
-  value = azurerm_user_assigned_identity.api-identity._id
+  value = azurerm_user_assigned_identity.api-identity.id
 }
