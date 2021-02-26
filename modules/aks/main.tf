@@ -7,7 +7,6 @@ provider "azurerm" {
 }
 
 provider "azuread" {
-  features {}
 }
 
 locals {
