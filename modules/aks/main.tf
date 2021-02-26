@@ -2,13 +2,12 @@ data "azurerm_resource_group" "cluster" {
   name = var.resource_group_name
 }
 
-provider "azurerm" {
-  version = ">= 2.5.0"
+provider "azurerm" {  
   features {}
 }
 
 provider "azuread" {
-  version = "~>0.7.0"
+  features {}
 }
 
 locals {
