@@ -23,7 +23,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: HashiCorp - Setup Terraform
-      uses: hashicorp/setup-terraform@v1.0.1
+      uses: hashicorp/setup-terraform@v1.2.1
         
     - name: Validate Modules
       run: for d in ./modules/*/ ; do (echo "Validating $d" && cd "$d" && terraform init && terraform validate); done
