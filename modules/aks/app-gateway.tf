@@ -12,6 +12,8 @@ locals {
 }
 
 resource "azurerm_application_gateway" "network" {
+  count = var.use_app_gateway ? 1 : 0
+
   name                = var.app_gateway_name
   resource_group_name = data.azurerm_resource_group.cluster.name
   location            = local.deployed_location
@@ -43,7 +45,7 @@ resource "azurerm_application_gateway" "network" {
 
   frontend_ip_configuration {
     name                 = local.frontend_ip_configuration_name
-    public_ip_address_id = data.azurerm_public_ip.test.id
+    public_ip_address_id = data.azurerm_public_ip.public_ip.id
   }
 
   backend_address_pool {
@@ -75,7 +77,7 @@ resource "azurerm_application_gateway" "network" {
 
   depends_on = [
     azurerm_virtual_network.cluster_network,
-    data.azurerm_public_ip.test,
+    data.azurerm_public_ip.public_ip,
   ]
 
   lifecycle {

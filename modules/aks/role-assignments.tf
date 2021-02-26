@@ -22,7 +22,8 @@ resource "azurerm_role_assignment" "ra2" {
 }
 
 resource "azurerm_role_assignment" "ra3" {
-  scope                = azurerm_application_gateway.network.id
+  count                = var.use_app_gateway ? 1 : 0
+  scope                = azurerm_application_gateway.network[0].id
   role_definition_name = "Contributor"
   principal_id         = azurerm_user_assigned_identity.testIdentity.principal_id
   depends_on = [

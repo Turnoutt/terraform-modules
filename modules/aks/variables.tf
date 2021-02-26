@@ -150,6 +150,11 @@ variable "public_ip_name" {
   type = string
 }
 
+variable "use_app_gateway" {
+  type    = bool
+  default = true
+}
+
 variable "public_ip_resource_group_name" {
   type = string
 }
