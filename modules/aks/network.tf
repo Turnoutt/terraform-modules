@@ -19,6 +19,7 @@ resource "azurerm_subnet" "kubesubnet" {
 }
 
 resource "azurerm_subnet" "appgwsubnet" {
+  count                = var.use_app_gateway ? 1 : 0
   name                 = "appgwsubnet" #Hardcoded to this name.
   virtual_network_name = azurerm_virtual_network.cluster_network.name
   resource_group_name  = data.azurerm_resource_group.cluster.name
