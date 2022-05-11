@@ -12,5 +12,5 @@ output "tenant_id" {
 
 resource "azurerm_resource_group" "api-resource-group" {
   name     = "rg-api-${var.api_name}-${var.environment}"
-  location = "West US 2"
+  location = var.region
 }
