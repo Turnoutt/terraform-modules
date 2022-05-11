@@ -13,7 +13,7 @@ variable "environment" {
   description = "dev, prod, staging, etc."
 }
 
-variable "version" {
+variable "region" {
   type        = string
   description = "dev, prod, staging, etc."
   default     = "US West 2"
