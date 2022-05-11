@@ -13,6 +13,12 @@ variable "environment" {
   description = "dev, prod, staging, etc."
 }
 
+variable "version" {
+  type        = string
+  description = "dev, prod, staging, etc."
+  default     = "US West 2"
+}
+
 variable "migrations_identity_principal_id" {
   type        = string
   default     = ""
