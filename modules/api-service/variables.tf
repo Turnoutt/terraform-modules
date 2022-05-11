@@ -16,7 +16,7 @@ variable "environment" {
 variable "region" {
   type        = string
   description = "dev, prod, staging, etc."
-  default     = "US West 2"
+  default     = "West US 2"
 }
 
 variable "migrations_identity_principal_id" {
